@@ -23,6 +23,16 @@ mongoose.connect(database.url);
 
 var Sales = require('./models/sales');
 
+app.get('/', async (req, res) => {
+  try {
+    const allInvoices = await Sales.find().lean();
+    res.render('invoices',{allInvoices} );
+    //console.log(allInvoices); 
+  } catch (err) {
+    res.status(500).send('failed to retrieve data');
+  }
+});
+
 // Render all invoices using Handlebars
 app.get('/api/invoices', async (req, res) => {
     try {
