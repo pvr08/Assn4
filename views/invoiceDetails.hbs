@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice Details</title>
+
+</head>
+<body>
+  <h1>Invoice Details</h1>
+  
+    <a href="/api/invoices">
+        <button>Back to All Invoices</button>
+    </a>
+    <a href="/api/sales/new">
+        <button>New Invoice</button>
+    </a>
+    
+  {{#if invoice}}
+    <div>
+      <h2>Invoice ID: {{invoice.[Invoice ID]}}</h2>
+      <p>Branch: {{invoice.Branch}}</p>
+      <p>City: {{invoice.City}}</p>
+      <p>Customer Type: {{invoice.[Customer type]}}</p>
+      <p>Product Line: {{invoice.[Product line]}}</p>
+      <p>Name: {{invoice.name}}</p>
+      <p>Image: <img src="{{invoice.image}}" alt="Product Image"></p>
+      <p>Unit Price: {{invoice.[Unit price]}}</p>
+      <p>Quantity: {{invoice.Quantity}}</p>
+      <p>Tax 5%: {{invoice.[Tax 5%]}}</p>
+      <p>Total: {{invoice.Total}}</p>
+      <p>Date: {{invoice.Date}}</p>
+      <p>Time: {{invoice.Time}}</p>
+      <p>Payment: {{invoice.Payment}}</p>
+      <p>COGS: {{invoice.cogs}}</p>
+      <p>Gross Income: {{invoice.[gross income]}}</p>
+      <p>Rating: {{invoice.Rating}}</p>
+    </div>
+  {{else}}
+    <p>No invoice found with the provided ID.</p>
+  {{/if}}
+</body>
+</html>
